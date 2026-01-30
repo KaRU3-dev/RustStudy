@@ -14,9 +14,25 @@ enum Result<T, E> {
     Ok(T),
     Err(E),
 }
+enum Condition {
+    True,
+    False,
+    Unknown,
+    Custom(String),
+}
 impl<T> Where<T> {
     fn new(name: String, data: T) -> Self {
         Self { name, data }
+    }
+
+    fn get_command_result(condition: Condition) {
+        match condition {
+            Condition::True => println!("True"),
+            Condition::False => println!("False"),
+            Condition::Unknown => println!("Unknown"),
+            Condition::Custom(s) if s.len() > 10 => println!("{}", s),
+            _ => println!("Unknown"), // その他のケース
+        }
     }
 }
 
