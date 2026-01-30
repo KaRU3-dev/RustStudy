@@ -4,6 +4,41 @@
     Multi line comment
 */
 
+fn add(a: i32, b: i32) -> i32 {
+    let r = a + b;
+
+    if r <= 1000 {
+        return r;
+    } else if r > 0 {
+        return 0;
+    } else {
+        return 1000;
+    }
+} // スコープ（式）は戻り値を必ず持つ必要がある
+
+fn infinity() {
+    let mut i = 0;
+
+    loop {
+        // 無限ループ
+        println!("Hello, world!");
+        i += 1;
+
+        if i > 10 {
+            break;
+        }
+    }
+
+    while i > 20 {
+        i += 1;
+    }
+
+    let data = [1, 2, 3, 4, 5];
+    for d in data.iter() {
+        println!("{}", d);
+    }
+}
+
 #[warn(unused_variables)]
 fn main() {
     // ! 基本
