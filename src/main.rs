@@ -1,4 +1,9 @@
-use std::fmt; // モジュールのインポート
+mod trait_study; // モジュールのインポート
+
+use std::fmt; // モジュール内のアイテムの使用
+use trait_study::Circle;
+use trait_study::Shape;
+use trait_study::Square;
 
 // 1 line comment
 /*
@@ -177,4 +182,7 @@ fn main() {
     let b4 = a4 as u32; // as を使って型変換できる
     let c4 = [1, 2, 3, 4, 5, 6];
     let c4_slice = &c4[1..3]; // 1 < x <= 3のインデックスの範囲で取得できる 1..3はレンジ型
+
+    let circle = Circle { radius: 1.0 };
+    let square = Square { side: 2.0 };
 }
