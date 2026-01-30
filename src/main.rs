@@ -1,8 +1,65 @@
+use std::fmt; // モジュールのインポート
+
 // 1 line comment
 /*
     Multi line comment
     Multi line comment
 */
+
+struct User {
+    // オブジェクト
+    username: String,
+    email: String,
+    sign_in_count: u64,
+    active: bool,
+}
+impl User {
+    // 構造体のメソッド（構造体を参照する場合は&selfと書く）
+    fn activate(&mut self) {
+        self.active = true;
+    }
+
+    // 関連関数（selfを引数に持たないメソッド） C#: static メソッド
+    fn new(base: Self, username: String, email: String) -> Self {
+        Self {
+            username,
+            email,
+            ..base
+        }
+    }
+}
+
+struct Password(String); // ユニット構造体（フィールド名なしで、データ型のみを持つ構造体）
+impl fmt::Display for Password {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{}", "*".repeat(self.0.len()))
+    }
+}
+
+fn create_user(username: String, email: String) -> User {
+    // オブジェクトのインスタンスを生成
+    return User {
+        email, // 変数名とフィールド名が一致する場合は、フィールド名を省略できる
+        username,
+        active: true,
+        sign_in_count: 1,
+    };
+}
+
+fn create_user_from_base(base: User, username: String, email: String) -> User {
+    return User {
+        username,
+        email,
+        ..base // こうすることで、別インスタンスから設定済みの値を新しいインスタンスにコピーできる（コピートレイトが実装してあるなら。ただし、されてない場合は所有権がここに移動する）
+    };
+}
+
+fn show_user(user: User) {
+    println!("{}", user.username);
+    println!("{}", user.email);
+    println!("{}", user.sign_in_count);
+    println!("{}", user.active);
+}
 
 fn add(a: i32, b: i32) -> i32 {
     let r = a + b;
