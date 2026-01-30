@@ -1,3 +1,4 @@
+mod box_study;
 mod trait_study; // モジュールのインポート
 
 use std::fmt; // モジュール内のアイテムの使用
