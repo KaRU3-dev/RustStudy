@@ -10,6 +10,9 @@ use trait_study::Square;
 /*
     Multi line comment
     Multi line comment
+
+    所有権の仕組み
+    https://zenn.dev/mebiusbox/books/22d4c1ed9b0003/viewer/fb8a99
 */
 
 struct Where<T> {

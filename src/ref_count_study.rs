@@ -6,7 +6,7 @@ struct BaseData {
 
 impl BaseData {
     fn new(key: String) -> Rc<Self> {
-        Rc::new(Self { key }) // ヒープメモリにインスタンスを作成
+        Rc::new(Self { key }) // ヒープメモリにインスタンスを作成 ?所有権の共有
     }
 
     fn see(dataRef: &Rc<Self>) {
