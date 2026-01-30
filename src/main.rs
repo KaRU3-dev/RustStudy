@@ -6,6 +6,20 @@ use std::fmt; // モジュールのインポート
     Multi line comment
 */
 
+struct Where<T> {
+    name: String,
+    data: T,
+}
+enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+impl<T> Where<T> {
+    fn new(name: String, data: T) -> Self {
+        Self { name, data }
+    }
+}
+
 enum UserStatus {
     Offline,
     Online,
