@@ -6,12 +6,22 @@ use std::fmt; // モジュールのインポート
     Multi line comment
 */
 
+enum UserStatus {
+    Offline,
+    Online,
+    Busy,
+    Away,
+    Custom(String), // 列挙子ごとに型を指定できる
+}
+
 struct User {
     // オブジェクト
     username: String,
     email: String,
     sign_in_count: u64,
     active: bool,
+    status: UserStatus,
+    password: Password,
 }
 impl User {
     // 構造体のメソッド（構造体を参照する場合は&selfと書く）
@@ -43,6 +53,8 @@ fn create_user(username: String, email: String) -> User {
         username,
         active: true,
         sign_in_count: 1,
+        status: UserStatus::Online,
+        password: Password("password".to_string()),
     };
 }
 
